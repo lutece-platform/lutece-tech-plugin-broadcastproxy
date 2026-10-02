@@ -1,0 +1,21 @@
+--
+-- Data for table broadcastproxy_subscription_link
+--
+INSERT INTO broadcastproxy_subscription_link (label, pictogramme, description, subscription_group, group_id, subscription_id, enabled) VALUES
+( 'Paris Centre', '', 'Actualités de l''arrondissement Paris Centre', 'Arrondissement', 100, 100, '1'),
+( 'Paris 5', '', 'Actualités de l''arrondissement Paris 5', 'Arrondissement', 100, 105, '1'),
+( 'Paris 6', '', 'Actualités de l''arrondissement Paris 6', 'Arrondissement', 100, 106, '1'),
+( 'Paris 7', '', 'Actualités de l''arrondissement Paris 7', 'Arrondissement', 100, 107, '1'),
+( 'Paris 8', '', 'Actualités de l''arrondissement Paris 8', 'Arrondissement', 100, 108, '1'),
+( 'Paris 9', '', 'Actualités de l''arrondissement Paris 9', 'Arrondissement', 100, 109, '1'),
+( 'Paris 10', '', 'Actualités de l''arrondissement Paris 10', 'Arrondissement', 100, 110, '1'),
+( 'Paris 11', '', 'Actualités de l''arrondissement Paris 11', 'Arrondissement', 100, 111, '1'),
+( 'Paris 12', '', 'Actualités de l''arrondissement Paris 12', 'Arrondissement', 100, 112, '1'),
+( 'Paris 13', '', 'Actualités de l''arrondissement Paris 13', 'Arrondissement', 100, 113, '1'),
+( 'Paris 14', '', 'Actualités de l''arrondissement Paris 14', 'Arrondissement', 100, 114, '1'),
+( 'Paris 15', '', 'Actualités de l''arrondissement Paris 15', 'Arrondissement', 100, 115, '1'),
+( 'Paris 16', '', 'Actualités de l''arrondissement Paris 16', 'Arrondissement', 100, 116, '1'),
+( 'Paris 17', '', 'Actualités de l''arrondissement Paris 17', 'Arrondissement', 100, 117, '1'),
+( 'Paris 18', '', 'Actualités de l''arrondissement Paris 18', 'Arrondissement', 100, 118, '1'),
+( 'Paris 19', '', 'Actualités de l''arrondissement Paris 19', 'Arrondissement', 100, 119, '1'),
+( 'Paris 20', '', 'Actualités de l''arrondissement Paris 20', 'Arrondissement', 100, 120, '1');
