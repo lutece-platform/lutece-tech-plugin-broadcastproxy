@@ -213,7 +213,7 @@ public class SubscriptionLinkJspBean extends AbstractManageSubscriptionJspBean <
         {
             return redirectView( request, VIEW_CREATE_SUBSCRIPTIONLINK );
         }
-        
+
         MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
 
         FileItem fileParameterBinaryValue = multipartRequest.getFile( "pictogramme" );
@@ -222,6 +222,10 @@ public class SubscriptionLinkJspBean extends AbstractManageSubscriptionJspBean <
         if( fileParameterBinaryValue.getSize( ) > 0 )
         {
             _subscriptionlink.setPictogramme( FileImagePublicService.getInstance( ).addImageResource( fileParameterBinaryValue ));
+        }
+        else
+        {
+            _subscriptionlink.setPictogramme("");
         }
         
         SubscriptionLinkHome.create( _subscriptionlink );
