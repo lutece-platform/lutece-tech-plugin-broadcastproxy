@@ -243,14 +243,16 @@ public class BroadcastproxyXPage extends MVCApplication
             return responseJSON( JsonUtil.buildJsonResponse( new ErrorJsonResponse( "An error occured while receiving the response" ) ) );
         }
 
-        if ( updateSubscriptions( strJson, mailUser ) )
-        {
-            responseJSON( JsonUtil.buildJsonResponse( new ErrorJsonResponse( "An error occured while receiving the response" ) ) );
-        }
-        
-        //Remove cache after update subscription
+        boolean bUpdated = updateSubscriptions( strJson, mailUser );
+
+        //Remove cache after update subscription, even a failed one may have been partially applied
         BroadcastCacheService.getInstance( ).removeUserSubscription( mailUser );
-        
+
+        if ( !bUpdated )
+        {
+            return responseJSON( JsonUtil.buildJsonResponse( new ErrorJsonResponse( "An error occured while updating subscriptions" ) ) );
+        }
+
         return responseJSON( JsonUtil.buildJsonResponse( new JsonResponse( "ok" ) ) );
     }
 
@@ -270,22 +272,18 @@ public class BroadcastproxyXPage extends MVCApplication
             
             if ( StringUtils.isNotEmpty( strAccount ) && !strAccount.equals( "default" )  )
             {
-                String strAccountId = AppPropertiesService.getProperty( PROPERTY_ACCOUNT_ADDROND_PREFIX + strAccount  ) ;               
-                BroadcastService.getInstance( ).updateArrondissementSubscribtions( userId, jsonResponse, strAccountId );
+                String strAccountId = AppPropertiesService.getProperty( PROPERTY_ACCOUNT_ADDROND_PREFIX + strAccount  ) ;
+                return BroadcastService.getInstance( ).updateArrondissementSubscribtions( userId, jsonResponse, strAccountId );
             }
-            else
-            {
-                // update subscriptions by feed type
-                BroadcastService.getInstance( ).updateSubscribtions( userId, jsonResponse, PROPERTY_ACCOUNT_ID );               
-            }
+
+            // update subscriptions by feed type
+            return BroadcastService.getInstance( ).updateSubscribtions( userId, jsonResponse, PROPERTY_ACCOUNT_ID );
         }
         catch( Exception e )
         {
             AppLogService.error( "An error occured while updating subscriptions : " + e.getMessage( ) );
             return false;
         }
-
-        return true;
     }
 
 }
