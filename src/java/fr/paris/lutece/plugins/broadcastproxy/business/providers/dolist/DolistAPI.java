@@ -449,9 +449,9 @@ public class DolistAPI
      */
     private String callDoPost( String strUrl, String jsonParams, Map<String, String> mapHeaders ) throws IOException, HttpAccessException
     {
-        DolistHttpAccess dlhttpaccess = new DolistHttpAccess( );
+        HttpAccess httpAccess = new HttpAccess( );
 
-        return dlhttpaccess.doPost( strUrl, jsonParams, mapHeaders );
+        return httpAccess.doPostJSON( strUrl, jsonParams, mapHeaders, null );
     }
 
     /**
@@ -466,9 +466,9 @@ public class DolistAPI
      */
     private String callDoPut( String strUrl, String jsonParams, Map<String, String> mapHeaders ) throws IOException, HttpAccessException
     {
-        DolistHttpAccess dlhttpaccess = new DolistHttpAccess( );
+        HttpAccess httpAccess = new HttpAccess( );
 
-        return dlhttpaccess.doPut( strUrl, jsonParams, mapHeaders );
+        return httpAccess.doPutJSON( strUrl, jsonParams, mapHeaders, null );
     }
 
     private Map<String, String> constructHeader( String strAccountId )
