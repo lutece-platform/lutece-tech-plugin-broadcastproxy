@@ -114,15 +114,15 @@ public class MockProvider implements IBroadcastProvider
     @Override
     public boolean updateSubscribtions( String userId, String jsonSubscriptions, String strAccountId ) throws Exception
     {
-        // TODO Auto-generated method stub
-        return false;
+        // Mock: nothing to update, simulate a successful update
+        return true;
     }
 
     @Override
     public boolean updateSubscribtions( String userId, List<Subscription> subscriptionsList ) throws Exception
     {
-        // TODO Auto-generated method stub
-        return false;
+        // Mock: nothing to update, simulate a successful update
+        return true;
     }
 
     @Override
@@ -142,7 +142,7 @@ public class MockProvider implements IBroadcastProvider
     @Override
     public boolean updateArrondissementSubscribtions( String userId, String jsonSubscriptions, String strAccountId ) throws Exception
     {
-        // TODO Auto-generated method stub
-        return false;
+        // Mock: nothing to update, simulate a successful update
+        return true;
     }
 }
